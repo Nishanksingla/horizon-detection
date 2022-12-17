@@ -25,7 +25,7 @@ Open the terminal and go to this projects folder.
 I have used Euclidean distance as a evaluation metric. It calculates the distance between 2 points. I think it's a good metric to use to evaluate the prediction of the points. This is for a single point. I have used root mean square error (RMSE) for all the left points and the right points. 
 
 # Instructions to run the evaluation script
-Evaluation script also takes 
+Evaluation script also takes 2 parameters same as the horizon detection script. The input folder should have the `ground_truth.json` file. The script will use `ground_truth.json` file from the input folder and the `predictions.json` from the output folder.
 ```
 python evaluation.py --input_folder input_2 --output_folder output_2  
 ```
