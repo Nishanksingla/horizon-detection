@@ -1,11 +1,37 @@
 # horizon-detection
 
+# Instructions to run the code
 
-Evaluation Metric: I have used Euclidean distance as a evaluation metric. 
-It calculates the distance between 2 points.
+To run the horizon detection, run the script `horizon_line_detection.py` as shown below. The script takes 2 arguments as input `input_folder` and `output_folder`. The value of these 2 parameters can be either relative path of the folder with respect to the script or can be absolute paths. The script will save the output images with the horizon line in the output folder with the same name as the input image, along with a `predictions.json` with the same format as `ground_truth.json`
 
-Evaluation metric for input 1 folder
+Note: Before running the script please install the dependencies using the `requirements.txt` file. Simply run `pip install -r requirements.txt` in your terminal. I would suggest to create a virtual env and install these dependencies in the virtual env. I have used Python 3.9.7 version to develop and to execute the script.
 
+```
+python horizon_line_detection.py --input_folder <input_1> --output_folder <output_1>
+```
+### Here are the complete sets of the commands that one can use to run the program. 
+
+```
+Open the terminal and go to this projects folder.
+1. python3 -m venv venv
+2. source venv/bin/activate
+3. pip install -r requirements.txt
+4. python horizon_line_detection.py --input_folder input_1 --output_folder output_1
+
+```
+
+
+# Evaluation Metric: 
+I have used Euclidean distance as a evaluation metric. It calculates the distance between 2 points. I think it's a good metric to use to evaluate the prediction of the points. This is for a single point. I have used root mean square error (RMSE) for all the left points and the right points. 
+
+# Instructions to run the evaluation script
+Evaluation script also takes 
+```
+python evaluation.py --input_folder input_2 --output_folder output_2  
+```
+
+### Evaluation metric output for input 1 folder
+```
 For image: frame0001.jpg, evaluation metric for left point: 22, right point: 4
 For image: frame0002.jpg, evaluation metric for left point: 11, right point: 2
 For image: frame0003.jpg, evaluation metric for left point: 20, right point: 3
@@ -156,12 +182,13 @@ For image: frame0147.jpg, evaluation metric for left point: 25, right point: 3
 For image: frame0148.jpg, evaluation metric for left point: 23, right point: 1
 For image: frame0149.jpg, evaluation metric for left point: 29, right point: 5
 For image: frame0150.jpg, evaluation metric for left point: 24, right point: 0
-
+For input folder: input_1, left RMSE: 29.446335369051727, right RMSE: 12.537410684294692
+```
 -----------------------------------------------------------------
 
-Evaluation metric for input 2 folder
------------------------------------------------------------------
+### Evaluation metric for input 2 folder
 
+```
 For image: frame0001.jpg, evaluation metric for left point: 3, right point: 35
 For image: frame0002.jpg, evaluation metric for left point: 24, right point: 5
 For image: frame0003.jpg, evaluation metric for left point: 18, right point: 6
@@ -312,3 +339,5 @@ For image: frame0147.jpg, evaluation metric for left point: 3, right point: 13
 For image: frame0148.jpg, evaluation metric for left point: 12, right point: 9
 For image: frame0149.jpg, evaluation metric for left point: 11, right point: 6
 For image: frame0150.jpg, evaluation metric for left point: 7, right point: 5
+For input folder: input_2, left RMSE: 37.096405935526064, right RMSE: 40.71261065894284
+```
